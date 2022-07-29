@@ -1,0 +1,165 @@
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="age">Enter age: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    <br/>
+    <label for="email">Enter email: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>
+
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+</head>
+<body>
+<div class="form-container">
+<form th:method="POST" th:action="@{/people}" th:object="${person}" class="form">
+    <h2 class="form__title">Person Form</h2>
+    <div class="form__group">
+        <label for="name" class="form__label"></label>
+        <input type="text" th:field="*{name}" id="name" name="firstName" class="form__input" placeholder="Enter name"/>
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    </div>
+
+    <div class="form__group">
+        <label for="age" class="form__label"></label>
+        <input type="text" th:field="*{age}" id="age" name="age" class="form__input" placeholder="Enter age"/>
+        <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    </div>
+
+    <div class="form__group">
+        <label for="email" class="form__label"></label>
+        <input type="text" th:field="*{email}" id="email" name="email" class="form__input" placeholder="Enter email"/>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    </div>
+    <button type="submit" value="Create" class="form__button">Create</button>
+</form>
+</div>
+</body>
+<style>
+    body {
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color:#9fb3af;
+    }
+    .form-container{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .form-container img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+    .form-container .form{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgb(112 112 112 / 34%);
+        width: 300px;
+        padding: 32px;
+        border-radius: 10px;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        backdrop-filter: blur(2px);
+        color: #000;
+
+    }
+
+    .form__label{
+        color: #fff;
+    }
+
+
+    .form__input,
+    .form__button {
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        font-size: 16px;
+    }
+
+    .form__title {
+        text-align: center;
+        margin-bottom: 100px;
+        font-weight: normal;
+    }
+
+    .form__group {
+        margin-bottom: 50px;
+    }
+
+    .form__input {
+        width: 100%;
+        padding: 0 0 10px 0;
+        border: none;
+        border-bottom: 1px solid #000;
+        color: #000;
+        outline: none;
+        transition: 0.3s;
+        background: none;
+    }
+    .form__input::placeholder{
+        color:#000;
+    }
+
+    .form__input:focus {
+        top: -18px;
+        font-size: 18px;
+
+        color: #000;
+    }
+
+    .form__button {
+        padding: 10px 20px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        color: #000;
+        background-color: #0071f0;
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s;
+        display: block;
+        margin: 0 auto 15px;
+    }
+
+    .form__button:focus,
+    .form__button:hover {
+        background-color: rgba(0, 111, 240, 0.7);
+    }
+    </style>
+</html>
+
